@@ -1,0 +1,12 @@
+# Ignore the reference/backup folder
+reference/
+*.json
+*.md
+
+# Ignore OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Ignore Node/Cline environment files (if you use them later)
+node_modules/
+.env
