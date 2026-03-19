@@ -16,8 +16,19 @@
          BANNER — background image lives on #headerback (full-width)
          #container inside has no background so the image shows through
          ============================================================ -->
-<div id="headerback">
-  <div id="container">
+    <div class="container">
+                <nav class="navigation">
+                <ul>
+                    <li class="tab active" data-target="home">Home</li>
+                    <li class="tab" data-target="about">About Us</li>
+                    <li class="tab" data-target="services">Services</li>
+                    <li class="tab" data-target="pools">New Pools</li>
+                    <li class="tab" data-target="contact">Contact</li>
+                </ul>
+            </nav>
+    </div>
+ <div id="headerback">
+  <div class="container">
     <header id="header">
 
       <img class="logo"
@@ -65,19 +76,11 @@
     <!-- ============================================================
          MAIN CONTENT — separate container with white background
          ============================================================ -->
-    <div id="container">
+    <div class="container">
         <div id="main">
 
             <!-- START NAVIGATION -->
-            <nav id="navigation">
-                <ul>
-                    <li class="tab active" data-target="home">Home</li>
-                    <li class="tab" data-target="about">About Us</li>
-                    <li class="tab" data-target="services">Services</li>
-                    <li class="tab" data-target="pools">New Pools</li>
-                    <li class="tab" data-target="contact">Contact</li>
-                </ul>
-            </nav>
+
 
             <div id="content">
                 <div id="jFlowSlide">

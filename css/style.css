@@ -52,7 +52,7 @@ hr {
     background-size: cover;
   }
 
-#container {
+.container {
     max-width: 900px;
     margin: 0 auto;
   }
@@ -143,17 +143,21 @@ hr {
   .dot.active { background: #fff; }
 
 /* ── Navigation Tabs ── */
-#navigation {
+.navigation {
     background: #2a6f83;
-    height: 40px;
-    border-bottom: 3px solid #1c4a57;
 }
-#navigation ul {
+.navigation ul {
     list-style: none;
     display: flex;
+    margin-bottom: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.navigation ul li {
+    margin-bottom: 0;
 }
 .tab {
-    padding: 10px 25px;
+    padding: 10px 10px;
     color: #fff;
     font-weight: bold;
     cursor: pointer;
@@ -166,7 +170,6 @@ hr {
 .tab.active {
     background: #fff;
     color: #005A9C;
-    border-top: 3px solid #005A9C;
 }
 
 /* ── Main Content Area ── */
@@ -295,7 +298,7 @@ ul li {
 
  /* ── MOBILE ── */
   @media (max-width: 640px) {
-    #container { padding: 0 16px; max-width: 640px;}
+    .container { padding: 0 16px; max-width: 640px;}
 
     #display { height: auto; min-height: 420px; }
 
@@ -315,5 +318,8 @@ ul li {
 
     .display_item > img {
       height: 200px;
+    }
+    div:has(> .navigation) {
+     padding:0;
     }
   }
