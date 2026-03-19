@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif; background: #888; }
+
+  #headerback {
+    width: 100%;
+    background: url('https://kateroo.github.io/aqua-revamp/images/banner-flow-background.webp') no-repeat center center;
+    background-size: cover;
+  }
+
+  #container {
+    width: 900px;
+    margin: 0 auto;
+  }
+
+  #header {
+    position: relative;
+    padding-bottom: 24px;
+  }
+
+  /* Logo */
+  #header .logo {
+    display: block;
+    width: 190px;
+    padding-top: 22px;
+    padding-bottom: 12px;
+    z-index: 10;
+  }
+
+  /* Slideshow wrapper */
+  #display {
+    width: 100%;
+    position: relative;
+  }
+
+  .display_item {
+    display: none;
+  }
+  .display_item.active {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+  }
+
+  /* LEFT: text — 50% */
+  .display_text {
+    flex: 0 0 50%;
+    width: 50%;
+    color: #fff;
+    padding: 10px 0;
+  }
+  .display_text h1 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+  }
+  .display_text p {
+    color: #d6eff7;
+    font-size: 12px;
+    line-height: 1.6;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  }
+
+  /* RIGHT: image — 50% */
+  .display_item > img {
+    flex: 0 0 calc(50% - 15px);
+    width: calc(50% - 15px);
+    height: 240px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  }
+
+  /* Dots */
+  #dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding-top: 16px;
+  }
+  .dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .dot.active { background: #fff; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 820px) {
+    #container { width: 100%; padding: 0 20px; }
+
+    .display_item.active {
+      flex-direction: column;
+    }
+
+    .display_text,
+    .display_item > img {
+      flex: 0 0 100%;
+      width: 100%;
+    }
+
+    .display_item > img {
+      height: 220px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="headerback">
+  <div id="container">
+    <header id="header">
+
+      <img class="logo"
+           src="https://kateroo.github.io/aqua-revamp/icons/Aquascapes%20logo%20blue.svg"
+           alt="Aquascapes Recreational Contractors">
+
+      <div id="display">
+
+        <div class="display_item active">
+          <div class="display_text">
+            <h1>Create your own Resort at Home</h1>
+            <p>A well-designed swimming pool can turn your backyard into an outdoor oasis. With waterfalls, deck jets and other unique amenities, a pool can serve as a relaxing and inviting resort, right in your own backyard.</p>
+          </div>
+          <img src="https://kateroo.github.io/aqua-revamp/images/aqua_pool_1.jpg" alt="SwimmingPool">
+        </div>
+
+        <div class="display_item">
+          <div class="display_text">
+            <h1>Encourage Family Time</h1>
+            <p>You'll make lasting memories as you teach your kids to swim, play with them in the pool, and barbecue by the water. When you build a pool, you're creating a fun place for your family to spend time together.</p>
+          </div>
+          <img src="https://kateroo.github.io/aqua-revamp/images/aqua_pool_3.jpg" alt="SwimmingPool">
+        </div>
+
+        <div class="display_item">
+          <div class="display_text">
+            <h1>A Gathering Place for Friends</h1>
+            <p>A swimming pool in your backyard gives your kids and their friends a place to play that is both convenient and safe. You can have peace of mind knowing that your children are close by.</p>
+          </div>
+          <img src="https://kateroo.github.io/aqua-revamp/images/aqua_pool_5.jpg" alt="SwimmingPool">
+        </div>
+
+      </div><!-- /display -->
+
+      <div id="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+    </header>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.display_item');
+  const dots = document.querySelectorAll('.dot');
+  let current = 0;
+
+  function goTo(n) {
+    items[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + items.length) % items.length;
+    items[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+  setInterval(() => goTo(current + 1), 4000);
+</script>
+
+</body>
+</html>
