@@ -16,7 +16,8 @@
          BANNER — background image lives on #headerback (full-width)
          #container inside has no background so the image shows through
          ============================================================ -->
-    <div class="container">
+    <div class="menu">
+        <div class="container">
                 <nav class="navigation">
                 <ul>
                     <li class="tab active" data-target="home">Home</li>
@@ -25,7 +26,8 @@
                     <li class="tab" data-target="pools">New Pools</li>
                     <li class="tab" data-target="contact">Contact</li>
                 </ul>
-            </nav>
+                </nav>
+        </div>    
     </div>
  <div id="headerback">
   <div class="container">
@@ -55,16 +57,34 @@
 
         <div class="display_item">
           <div class="display_text">
-            <h1>A Gathering Place for Friends</h1>
-            <p>A swimming pool in your backyard gives your kids and their friends a place to play that is both convenient and safe. You can have peace of mind knowing that your children are close by.</p>
+            <h1>Professional Pool Services</h1>
+            <p>From seasonal openings and closings to weekly maintenance and leak detection, we provide comprehensive care for your pool, ensuring it remains in peak condition all season long.</p>
           </div>
           <img src="https://kateroo.github.io/aqua-revamp/images/aqua_pool_5.jpg" alt="SwimmingPool">
+        </div>
+
+        <div class="display_item">
+          <div class="display_text">
+            <h1>New Pool Construction</h1>
+            <p>We use the finest components and latest methods to build high-quality, energy-efficient pools. Our team guides you from initial design concept to the final, beautiful completion of your project.</p>
+          </div>
+          <img src="https://kateroo.github.io/aqua-revamp/images/aqua_pool_4.jpg" alt="SwimmingPool">
+        </div>
+
+        <div class="display_item">
+          <div class="display_text">
+            <h1>Get in Touch</h1>
+            <p>Have questions about pool maintenance or interested in a new installation? Contact our Waterloo office today to speak with our experienced staff and experience the Aquascapes difference.</p>
+          </div>
+          <img src="https://kateroo.github.io/aqua-revamp/images/aqua_pool_6.jpg" alt="SwimmingPool">
         </div>
 
       </div><!-- /display -->
 
       <div id="dots">
         <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
@@ -86,7 +106,7 @@
                 <div id="jFlowSlide">
 
                     <!-- START HOME PAGE -->
-                    <div class="page" id="home">
+                    <div class="page" id="home" style="display: flex;">
                         <div class="left">
                             <h1>Aquascapes</h1>
                             <p class="intro">The perfect choice for homeowners seeking local, experienced and professional pool construction. Serving the Kitchener - Waterloo and surrounding area for over 16 years, we specialize in vinyl-lined residential pool construction, guiding you "from Concept to Completion." The following is a list of our specialized services.</p>
@@ -140,7 +160,7 @@
                                 <strong>Email:</strong> <a href="mailto:info@aquascapesrc.ca">info@aquascapesrc.ca</a></p>
                             </div>
                         </div>
-                        <div class="spacer"></div>
+                        
                     </div>
                     <!-- END HOME PAGE -->
 
@@ -163,7 +183,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="spacer"></div>
+                        
                     </div>
                     <!-- END ABOUT US PAGE -->
 
@@ -196,7 +216,7 @@
                                 <p>Knowledgeable, professional, trained, experienced and friendly. You'll notice our dedicated staff returns to us year after year, giving you the best in service and reliability.</p>
                             </div>
                         </div>
-                        <div class="spacer"></div>
+                        
                     </div>
                     <!-- END SERVICES PAGE -->
 
@@ -221,7 +241,7 @@
                                 <p><i>- Jane and Paul</i></p>
                             </div>
                         </div>
-                        <div class="spacer"></div>
+                        
                     </div>
                     <!-- END NEW POOLS PAGE -->
 
@@ -263,7 +283,7 @@
                                         <textarea name="url"></textarea>
                                     </div>
                                     <button type="submit">Send Message</button>
-                                    <div class="spacer"></div>
+                                    
                                 </form>
                             </div>
                         </div>
@@ -292,7 +312,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="spacer"></div>
+                        
                     </div>
                     <!-- END CONTACT US PAGE -->
 
@@ -325,14 +345,17 @@
             }
 
             dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
-            setInterval(() => goTo(current + 1), 4000);
+            // Automatic rotation removed as requested
 
             // ── Tab Navigation ──
             const tabs  = document.querySelectorAll('.tab');
             const pages = document.querySelectorAll('.page');
 
-            tabs.forEach(tab => {
+            tabs.forEach((tab, index) => {
                 tab.addEventListener('click', () => {
+                    // Update Banner Carousel
+                    goTo(index);
+
                     const targetId = tab.getAttribute('data-target');
 
                     tabs.forEach(t => t.classList.remove('active'));
@@ -340,7 +363,7 @@
 
                     pages.forEach(page => {
                         if (page.id === targetId) {
-                            page.style.display = 'block';
+                            page.style.display = 'flex';
                             page.classList.add('fade-in');
                         } else {
                             page.style.display = 'none';
