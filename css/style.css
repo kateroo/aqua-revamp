@@ -1,0 +1,271 @@
+/* ============================================================
+   Aquascapes Recreational Contractors — Modern Stylesheet
+   ============================================================ */
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #3b879c;
+    color: #333;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+a {
+    color: #005A9C;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #005A9C;
+    margin-bottom: 10px;
+}
+
+h1 { font-size: 24px; }
+h4 { font-size: 16px; margin-top: 15px; }
+h5 { font-size: 14px; }
+
+p {
+    margin-bottom: 15px;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 15px 0;
+}
+
+/* Layout */
+#headerback {
+    background: url('../images/aqua_header_bg_ie.jpg') repeat-x top center;
+    width: 100%;
+}
+
+#container {
+    width: 900px;
+    margin: 0 auto;
+}
+
+/* Hero Slider */
+#header {
+    height: 335px;
+    position: relative;
+    overflow: hidden;
+}
+
+#display {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.display_item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+}
+.display_item.active {
+    opacity: 1;
+    z-index: 2;
+}
+.display_item img {
+    position: absolute;
+    top: 40px;
+    right: 36px;
+    width: 406px;
+    height: 243px;
+    object-fit: cover;
+}
+
+.display_text {
+    position: absolute;
+    top: 150px;
+    left: 30px;
+    width: 400px;
+    color: #fff;
+}
+.display_text h1 {
+    color: #fff;
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+.display_text p {
+    color: #B9DCE7;
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+/* Navigation Tabs */
+#navigation {
+    background: #2a6f83;
+    height: 40px;
+    border-bottom: 3px solid #1c4a57;
+}
+#navigation ul {
+    list-style: none;
+    display: flex;
+}
+.tab {
+    padding: 10px 25px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border-right: 1px solid #1c4a57;
+    transition: background 0.3s;
+}
+.tab:hover {
+    background: #3b879c;
+}
+.tab.active {
+    background: #fff;
+    color: #005A9C;
+    border-top: 3px solid #005A9C;
+}
+
+/* Main Content Area */
+#main {
+    background: #fff;
+}
+
+#content {
+    min-height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.page {
+    padding: 30px;
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Two Column Layout inside Pages */
+.left {
+    float: left;
+    width: 480px;
+}
+.right {
+    float: right;
+    width: 230px;
+}
+.spacer {
+    clear: both;
+}
+
+/* Specific Content Styles */
+.intro {
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.leftimage {
+    float: left;
+    margin-right: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+    vertical-align: top;
+}
+
+/* Right Sidebars */
+.right_back, .right_back_2b, .right_back_3, .right_back_4, .right_back_5 {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Forms */
+.field {
+    margin-bottom: 15px;
+}
+.field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.field .small {
+    font-weight: normal;
+    font-size: 11px;
+    color: #666;
+    display: block;
+}
+input[type="text"], input[type="tel"], input[type="email"], textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+}
+button {
+    background: #005A9C;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+button:hover {
+    background: #003d6b;
+}
+
+/* Lists */
+ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+ul li {
+    margin-bottom: 5px;
+}
+
+/* Footer */
+#footer {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-top: 1px solid #ddd;
+    color: #666;
+    font-size: 11px;
+}
+#footer img {
+    margin-bottom: 10px;
+    max-width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 820px) {
+    #container { width: 100%; }
+    .left, .right { float: none; width: 100%; }
+    .right { margin-top: 30px; }
+    .display_text { width: calc(100% - 40px); bottom: 20px; right: 20px; }
+    #navigation ul { flex-wrap: wrap; }
+    .tab { flex-grow: 1; text-align: center; }
+}

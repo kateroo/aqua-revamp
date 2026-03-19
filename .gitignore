@@ -1,7 +1,5 @@
 # Ignore the reference/backup folder
-reference/
-*.json
-*.md
+
 
 # Ignore OS-specific junk
 .DS_Store
